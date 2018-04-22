@@ -1,0 +1,77 @@
+:root {
+	font-size: 16px;
+}
+
+html,body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+#search_btn {
+	background-image: url('search.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#search_box {
+	 display: none;
+}
+
+#chat_icon {
+	background-image: url('chat-icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#three_dots {
+	background-image: url('3dots.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.disp_pic1 {
+	background-image: url("pri_dp.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.disp_pic2 {
+	background-image: url("maddy_dp.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.disp_pic3 {
+	background-image: url("mom_dp.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.disp_pic4 {
+	background-image: url("college_dp.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.disp_pic5 {
+	background-image: url("family_dp.jpg");
+	background-color: white;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.msg {
+	overflow: hidden;
+}
+
+.timestamp {
+	font-size: 0.6rem;
+	color: white;
+}
+
+@media screen and (max-width: 576px) {
+	#chat_section {
+		overflow-y: hidden; 
+	}
+}

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Divya's WhatsApp</title>
+	<!--Stylesheets-->
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container-fluid m-0 p-0" style="overflow-y: auto; overflow-x: hidden;">
+		<div class="row justify-content-start no-gutters">
+			<div class="col-sm-12 col-md-4 bg-info">
+				<div class="row border-top-0 p-1 mx-auto">
+					<div class="col-2 border-dark border-top-0 p-0 rounded">
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-link p-0 w-100 h-100" data-toggle="modal" data-target="#DP_Modal">
+							<img id="disp_pic" src="my_dp.jpg" class="w-100 h-100 rounded">
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="DP_Modal" tabindex="-1" role="dialog" aria-labelledby="DP_ModalLabel" aria-hidden="true">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="DP_ModalLabel">Update your Profile Picture</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="removeFile()">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						        <img id="profile_pic" src="my_dp.jpg" style="width: 100%; height: 100%; margin-bottom: 2vh;">
+						        <div class="form-group">
+			                        <label for="DPfile"><i>Choose a new Display Picture</i></label>
+			                        <input type="file" class="form-control-file" id="DPfile">
+			                    </div>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="DP_change()">Save Changes</button>
+						        <button type="button" class="btn btn-primary" onclick="uploadFile()">Upload</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>						
+					<div class="col-7 text-truncate text-white"><b>Divya</b><br><a class="text-truncate text-white" style="text-decoration: none; cursor: pointer;" onclick="status_change()"><small id="status">Click here to change the status</small></a></div>
+					<div class="col-1 p-2 align-self-center"><button id="search_btn" class="btn btn-link btn-lg" onclick="disp_search()"></button></div>
+					<div class="col-1 p-2 align-self-center"><button id="chat_icon" class="btn btn-link btn-lg" onclick="display_chatSection()"></button></div>
+					<div class="col-1 p-2 align-self-center">
+						<button id="three_dots" class="btn btn-link btn-lg" data-container="body" data-toggle="modal" data-target="#threeDots"></button>
+						<div class="modal fade" id="threeDots" tabindex="-1" role="dialog" aria-hidden="true">
+						  <div class="modal-dialog modal-sm" role="document">
+						    <div class="modal-content w-75">
+						      <div class="modal-body">
+						      	<div class="row">
+						      		<div class="col-12 my-2 text-center">
+						      			<img src="settings.png" style="width: 30px;height: 30px;">
+						      			<button class="btn btn-link text-dark" style="text-decoration: none;">Account Settings</button>
+						      		</div>
+						      	</div>
+						      	<div class="row border-top border-dark">
+						      		<div class="col-12 my-2 text-center">
+						      			<img src="unread.png" style="width: 30px;height: 30px;">
+						      			<button class="btn btn-link text-dark" style="text-decoration: none;" data-dismiss="modal" onclick="display_unread()">Unread Messages</button>
+						      		</div>
+						      	</div>
+						      	<div class="row border-top border-dark">
+						      		<div class="col-12 mt-2 text-center">
+						      			<img src="group.png" style="width: 30px;height: 30px;margin-right: 10px;">
+						      			<button class="btn btn-link text-dark" style="text-decoration: none;">Create Group</button>
+						      		</div>
+						      	</div>						      	
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
+				</div>
+				<div id="search_box" class="row border-top-0 p-1 mx-auto">
+					<div class="input-group d-flex justify-content-between">
+			             <div class="col-9 m-0 p-1"><input id="sch_cont" type="text" name="search" placeholder="Search..." style="width: 100%" onchange="bck_clr_change()"></div>
+			             <div class="col-3 m-0 p-1"><button type="submit" class="btn btn-dark btn-sm" style="width: 100%" onclick="contact_search()">Search</button></div>
+			        </div>
+				</div>
+			</div>
+			<div class="col-sm-0 col-md-8 d-none d-md-block bg-dark text-white text-center font-weight-bold">
+				<div id="hdr1" class="row w-100 h-100 ml-3" style="display: none;">
+					<div class="col-1 disp_pic1 border-dark border-top-0 p-3 rounded-circle"></div>
+					<div class="col-9 text-truncate text-light text-left align-self-center"><b>Pri</b><br><small>typing...</small></div>
+					<div class="col-1 align-self-center"><img src="attachment.png" class="w-50 h-50" style="cursor: pointer;"></div>
+					<div class="col-1 align-self-center ml-0 pl-0"><img src="whiteDots.jpg" class="w-50 h-50" style="cursor: pointer;"></div>
+				</div>
+				<div id="hdr2" class="row w-100 h-100 ml-3" style="display: none;">
+					<div class="col-1 disp_pic2 border-dark border-top-0 p-3 rounded-circle"></div>
+					<div class="col-9 text-truncate text-light text-left align-self-center"><b>Maddy</b><br><small>last seen 1 min ago</small></div>
+					<div class="col-1 align-self-center"><img src="attachment.png" class="w-50 h-50" style="cursor: pointer;"></div>
+					<div class="col-1 align-self-center ml-0 pl-0"><img src="whiteDots.jpg" class="w-50 h-50" style="cursor: pointer;"></div>
+				</div>
+				<div id="hdr3" class="row w-100 h-100 ml-3" style="display: none;">
+					<div class="col-1 disp_pic3 border-dark border-top-0 p-3 rounded-circle"></div>
+					<div class="col-9 text-truncate text-light text-left align-self-center"><b>Mom</b><br><small>online</small></div>
+					<div class="col-1 align-self-center"><img src="attachment.png" class="w-50 h-50" style="cursor: pointer;"></div>
+					<div class="col-1 align-self-center ml-0 pl-0"><img src="whiteDots.jpg" class="w-50 h-50" style="cursor: pointer;"></div>
+				</div>
+				<div id="hdr4" class="row w-100 h-100 ml-3" style="display: none;">
+					<div class="col-1 disp_pic4 border-dark border-top-0 p-3 rounded-circle"></div>
+					<div class="col-9 text-truncate text-light text-left align-self-center"><b>College Buddies</b><br><small>Tina typing...</small></div>
+					<div class="col-1 align-self-center"><img src="attachment.png" class="w-50 h-50" style="cursor: pointer;"></div>
+					<div class="col-1 align-self-center ml-0 pl-0"><img src="whiteDots.jpg" class="w-50 h-50" style="cursor: pointer;"></div>
+				</div>
+				<div id="hdr5" class="row w-100 h-100 ml-3" style="display: none;">
+					<div class="col-1 disp_pic5 border-dark border-top-0 p-3 rounded-circle"></div>
+					<div class="col-9 text-truncate text-light text-left align-self-center"><b>Family Forever</b><br><small>tap here for group info</small></div>
+					<div class="col-1 align-self-center"><img src="attachment.png" class="w-50 h-50" style="cursor: pointer;"></div>
+					<div class="col-1 align-self-center ml-0 pl-0"><img src="whiteDots.jpg" class="w-50 h-50" style="cursor: pointer;"></div>
+				</div>																
+			</div>
+		</div>
+		<div class="row justify-content-start no-gutters">
+			<div id="chat_section" class="col-sm-12 col-md-4 pr-0" style="height: 580px;overflow-y: scroll;">
+				<a style="text-decoration: none;" data-toggle="collapse" href="#collapseChat1" aria-expanded="false" aria-controls="collapseChat1" onclick="displayChat(1)">
+					<div class="row chat border border-top-0 p-1 mx-auto">
+						<div class="col-2 disp_pic1 border-dark border-top-0 p-1 rounded"></div>
+						<div class="col-7 msg text-truncate text-dark"><b>Pri</b><br><small>Hey Pri :) Whats up ??</small></div>
+						<div class="col-3 timestamp text-right text-muted">10:00AM</div>
+					</div></a>
+				<div class="collapse d-md-none" id="collapseChat1">
+					<div class="card bg-info text-white w-100 h-100 m-0">
+						<div class="card-header bg-dark text-white d-flex">
+							<div class="p-0 mr-auto"><small>typing...</small></div>
+							<div class="p-0"><img src="attachment.png" style="width: 20px;height: 15px;"></div>
+							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
+						</div>
+						<div class="card-body">
+							<div class="d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 17,2018</small></mark></div>							
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Let's catch up today&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Sure ! What time ??&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>sharp @6.. cafetaria !!&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Hey Pri :) Whats up ??&emsp;</b><small class="text-muted">10:00AM</small></mark></div>
+							</div>						
+						</div>
+						<div class="card-footer m-0 d-inline-flex">
+							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						</div>
+					</div>	
+				</div>				
+				<a style="text-decoration: none;" data-toggle="collapse" href="#collapseChat2" aria-expanded="false" aria-controls="collapseChat2" onclick="displayChat(2)">
+					<div class="row chat border border-top-0 p-1 mx-auto">
+						<div class="col-2 disp_pic2 border-dark border-top-0 p-1 rounded"></div>
+						<div class="col-7 msg text-truncate text-dark"><b>Maddy</b><br><small>Bro !! You there?</small></div>
+						<div class="col-3 timestamp text-right text-muted">05:32PM</div>
+					</div></a>
+				<div class="collapse d-md-none" id="collapseChat2">
+					<div class="card bg-info text-white w-100 h-100 m-0">
+						<div class="card-header bg-dark text-white d-flex">
+							<div class="p-0 mr-auto"><small>last seen 1 min ago</small></div>
+							<div class="p-0"><img src="attachment.png" style="width: 20px;height: 15px;"></div>
+							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
+						</div>						
+						<div class="card-body">
+							<div class="d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Pick some icecream on your way to home&emsp;</b><small class="text-muted">05:30PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Hmmmm...&emsp;</b><small class="text-muted">05:31PM</small></mark></div>							
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Will you bring or no ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>							
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Bro !! You there?&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+							</div>
+						</div>
+						<div class="card-footer m-0 d-inline-flex">
+							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						</div>
+					</div>
+				</div>		
+				<a style="text-decoration: none;" data-toggle="collapse" href="#collapseChat3" aria-expanded="false" aria-controls="collapseChat3" onclick="displayChat(3)">
+					<div class="row chat border border-top-0 p-1 mx-auto">
+						<div class="col-2 disp_pic3 border-dark border-top-0 p-1 rounded"></div>
+						<div class="col-7 msg text-truncate text-dark"><b>Mom</b><br><small>I feel hungry..it looks so yumm :P</small></div>
+						<div class="col-3 timestamp text-right text-muted">08:30PM</div>
+					</div></a>
+				<div class="collapse d-md-none" id="collapseChat3">
+					<div class="card bg-info text-white w-100 h-100 m-0">
+						<div class="card-header bg-dark text-white d-flex">
+							<div class="p-0 mr-auto"><small>online</small></div>
+							<div class="p-0"><img src="attachment.png" style="width: 20px;height: 15px;"></div>
+							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
+						</div>						
+						<div class="card-body">
+							<div class="d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">YESTERDAY</small></mark></div>							
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Have you reached ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Yes, mom ...&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Good, take care, enjoy...&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>whats in the menu today..? &emsp;</b><small class="text-muted">08:30PM</small></mark></div>								
+								<div class="d-flex flex-row justify-content-start"><mark class="mb-2 bg-light rounded" style="font-size: 12px;"><img src="chhole.png" style="width: 250px;height: 200px"><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<small class="text-muted text-right">08:30PM</small></mark></div>										
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>I feel hungry..it looks so yumm :P&emsp;</b><small class="text-muted">08:30PM</small></mark></div>
+							</div>
+						</div>
+						<div class="card-footer m-0 d-inline-flex">
+							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						</div>
+					</div>	
+				</div>					
+				<a style="text-decoration: none;" data-toggle="collapse" href="#collapseChat4" aria-expanded="false" aria-controls="collapseChat4" onclick="displayChat(4)">
+					<div class="row chat border border-top-0 p-1 mx-auto">
+						<div class="col-2 disp_pic4 border-dark border-top-0 p-1 rounded"></div>
+						<div class="col-7 msg text-truncate text-dark"><b>College Buddies</b><br><small id="unread_msg" style="color: blue;">@Tina Check this out </small><img src="emoji.png" style="width: 15px;height: 20px;margin-left: 2px;"></div>
+						<div class="col-3 timestamp text-right text-muted">04/11/18<br><img id="unread_num" src="2.png" style="width: 20px;height: 20px;margin-top: 10px;"></div>
+					</div></a>
+				<div class="collapse d-md-none" id="collapseChat4">
+					<div class="card bg-info text-white w-100 h-100 m-0">
+						<div class="card-header bg-dark text-white d-flex">
+							<div class="p-0 mr-auto"><small>Tina typing...</small></div>
+							<div class="p-0"><img src="attachment.png" style="width: 20px;height: 15px;"></div>
+							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
+						</div>						
+						<div class="card-body">
+							<div class="d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 11,2018</small></mark></div>	
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tina</span><br>So.. tell me girls..which one should i go with..&emsp;</b><small class="text-muted">08:29PM</small></mark></div>													
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>You guys carry on.. TTYL..I've to attend a call&emsp;</b><small class="text-muted">08:30PM</small></mark></div>							
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><u class="text-primary">https://www.amazon.in/Footilicious-Womens-Black-Fashion-Sandals/dp/B06XWTVP26?tag=googinhydr18418-21&tag=googinkenshoo-21&ascsubtag=d8487a7e-ab62-44a3-8279-4ea60ac484ea</u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:47PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><span class="text-success">@Tina</span> Check this out </b><img src="emoji.png" style="width: 15px;height: 20px;margin-left: 2px;">&emsp;<small class="text-muted">08.47PM</small></mark></div>
+							</div>						
+						</div>
+						<div class="card-footer m-0 d-inline-flex">
+							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						</div>
+					</div>	
+				</div>					
+				<a style="text-decoration: none;" data-toggle="collapse" href="#collapseChat5" aria-expanded="false" aria-controls="collapseChat5" onclick="displayChat(5)">
+					<div class="row chat border border-top-0 p-1 mx-auto">
+						<div class="col-2 disp_pic5 border-dark border-top-0 p-1 rounded"></div>
+						<div class="col-7 msg text-truncate text-dark"><b>Family Forever</b><br><small>Happy birthday aunty ;) where's the party tonight??</small></div>
+						<div class="col-3 timestamp text-right text-muted">03/27/18</div>
+					</div></a>
+				<div class="collapse d-md-none" id="collapseChat5">
+					<div class="card bg-info text-white w-100 h-100 m-0">
+						<div class="card-header bg-dark text-white d-flex">
+							<div class="p-0 mr-auto"><small>tap here for group info</small></div>
+							<div class="p-0"><img src="attachment.png" style="width: 20px;height: 15px;"></div>
+							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
+						</div>						
+						<div class="card-body">
+							<div class="d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">MARCH 27,2018</small></mark></div>		
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br><img src="cake.jpg" style="width: 250px;height: 200px;"><br>happy b'day love..&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:55AM</small></mark></div>
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-warning font-weight-bold">Mini Aunty</span><br>You remember the date, huh !!&emsp;</b><small class="text-muted">08:57AM</small></mark></div>
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br>oh !! how can I forget :P&emsp;</b><small class="text-muted">08:57AM</small></mark></div>							
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Sid</span><br>Many more happy return of the day aunty..&emsp;</b><small class="text-muted">08:58AM</small></mark></div>						
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Happy birthday aunty ;) where's the party tonight??&emsp;</b><small class="text-muted">09:01AM</small></mark></div>
+							</div>						
+						</div>
+						<div class="card-footer m-0 d-inline-flex">
+							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						</div>
+					</div>	
+				</div>					
+<!-- 				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic3 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Mom</b><br><small>I feel hungry..it looks so yumm :P</small></div>
+					<div class="col-3 timestamp text-right text-muted">08:30PM</div>
+				</div>
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic4 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>College Buddies</b><br><small>@Tina Check this out :D</small></div>
+					<div class="col-3 timestamp text-right text-muted">04/11/18</div>
+				</div>
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic5 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Family Forever</b><br><small>Happy birthday aunty ;) where's the party tonight??</small></div>
+					<div class="col-3 timestamp text-right text-muted">03/27/18</div>
+				</div>				
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic3 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Mom</b><br><small>I feel hungry..it looks so yumm :P</small></div>
+					<div class="col-3 timestamp text-right text-muted">08:30PM</div>
+				</div>
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic4 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>College Buddies</b><br><small>@Tina Check this out :D</small></div>
+					<div class="col-3 timestamp text-right text-muted">04/11/18</div>
+				</div>
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic5 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Family Forever</b><br><small>Happy birthday aunty ;) where's the party tonight??</small></div>
+					<div class="col-3 timestamp text-right text-muted">03/27/18</div>
+				</div>				
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic3 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Mom</b><br><small>I feel hungry..it looks so yumm :P</small></div>
+					<div class="col-3 timestamp text-right text-muted">08:30PM</div>
+				</div>
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic4 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>College Buddies</b><br><small>@Tina Check this out :D</small></div>
+					<div class="col-3 timestamp text-right text-muted">04/11/18</div>
+				</div>
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic5 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Family Forever</b><br><small>Happy birthday aunty ;) where's the party tonight??</small></div>
+					<div class="col-3 timestamp text-right text-muted">03/27/18</div>
+				</div>				
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic3 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Mom</b><br><small>I feel hungry..it looks so yumm :P</small></div>
+					<div class="col-3 timestamp text-right text-muted">08:30PM</div>
+				</div>
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic4 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>College Buddies</b><br><small>@Tina Check this out :D</small></div>
+					<div class="col-3 timestamp text-right text-muted">04/11/18</div>
+				</div>						
+				<div class="row chat border border-top-0 p-1 mx-auto">
+					<div class="col-2 disp_pic5 border-dark border-top-0 p-1 rounded"></div>
+					<div class="col-7 msg text-truncate text-dark"><b>Family Forever</b><br><small>Happy birthday aunty ;) where's the party tonight??</small></div>
+					<div class="col-3 timestamp text-right text-muted">03/27/18</div>
+				</div>	 -->							
+			</div>	
+			<div class="col-sm-0 col-md-8 d-none d-md-block bg-dark">
+				<div id="chat1" class="card bg-info w-100 h-100 m-0" style="display: none;">
+					<div class="card-body">
+						<div class="d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 17,2018</small></mark></div>							
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Let's catch up today&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Sure ! What time ??&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>sharp @6.. cafetaria !!&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Hey Pri :) Whats up ??&emsp;</b><small class="text-muted">10:00AM</small></mark></div>
+						</div>						
+					</div>
+					<div class="card-footer m-0 d-inline-flex">
+						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+					</div>
+				</div>
+				<div id="chat2" class="card bg-info w-100 h-100 m-0" style="display: none;">
+					<div class="card-body">
+						<div class="d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Pick some icecream on your way to home&emsp;</b><small class="text-muted">05:30PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Hmmmm...&emsp;</b><small class="text-muted">05:31PM</small></mark></div>							
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Will you bring or no ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>							
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Bro !! You there?&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+						</div>						
+					</div>
+					<div class="card-footer m-0 d-inline-flex">
+						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+					</div>
+				</div>
+				<div id="chat3" class="card bg-info w-100 h-100 m-0" style="display: none;">
+					<div class="card-body">
+						<div class="d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">YESTERDAY</small></mark></div>							
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Have you reached ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Yes, mom ...&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Good, take care, enjoy...&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>whats in the menu today..? &emsp;</b><small class="text-muted">08:30PM</small></mark></div>								
+							<div class="d-flex flex-row justify-content-start"><mark class="mb-2 bg-light rounded" style="font-size: 12px;"><img src="chhole.png" style="width: 250px;height: 200px"><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<small class="text-muted text-right">08:30PM</small></mark></div>										
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>I feel hungry..it looks so yumm :P&emsp;</b><small class="text-muted">08:30PM</small></mark></div>
+						</div>						
+					</div>
+					<div class="card-footer m-0 d-inline-flex">
+						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+					</div>
+				</div>
+				<div id="chat4" class="card bg-info w-100 h-100 m-0" style="display: none;">
+					<div class="card-body">
+						<div class="d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 11,2018</small></mark></div>	
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tina</span><br>So.. tell me girls..which one should i go with..&emsp;</b><small class="text-muted">08:29PM</small></mark></div>													
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>You guys carry on.. TTYL..I've to attend a call&emsp;</b><small class="text-muted">08:30PM</small></mark></div>							
+							<div class="d-flex flex-row justify-content-start w-50"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><u class="text-primary">https://www.amazon.in/Footilicious-Womens-Black-Fashion-Sandals/dp/B06XWTVP26?tag=googinhydr18418-21&tag=googinkenshoo-21&ascsubtag=d8487a7e-ab62-44a3-8279-4ea60ac484ea</u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:47PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><span class="text-success">@Tina</span> Check this out </b><img src="emoji.png" style="width: 15px;height: 20px;margin-left: 2px;">&emsp;<small class="text-muted">08.47PM</small></mark></div>
+						</div>						
+					</div>
+					<div class="card-footer m-0 d-inline-flex">
+						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+					</div>
+				</div>
+				<div id="chat5" class="card bg-info w-100 h-100 m-0" style="display: none;">
+					<div class="card-body">
+						<div class="d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">MARCH 27,2018</small></mark></div>		
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br><img src="cake.jpg" style="width: 250px;height: 200px;"><br>happy b'day love..&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:55AM</small></mark></div>
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-warning font-weight-bold">Mini Aunty</span><br>You remember the date, huh !!&emsp;</b><small class="text-muted">08:57AM</small></mark></div>
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br>oh !! how can I forget :P&emsp;</b><small class="text-muted">08:57AM</small></mark></div>							
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Sid</span><br>Many more happy return of the day aunty..&emsp;</b><small class="text-muted">08:58AM</small></mark></div>						
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Happy birthday aunty ;) where's the party tonight??&emsp;</b><small class="text-muted">09:01AM</small></mark></div>
+						</div>						
+					</div>
+					<div class="card-footer m-0 d-inline-flex">
+						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+					</div>
+				</div>																				
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var idx = 0;
+		var newDP;
+		function disp_search() { 
+			document.getElementById("search_btn").style.display = "none";
+			document.getElementById("search_box").style.display = "block"; 
+		}
+
+		function blur_search() { 
+			document.getElementById("search_btn").style.display = "block";
+			document.getElementById("search_box").style.display = "none"; 
+		}		
+
+		function contact_search() {
+			for(var n in document.querySelectorAll("div.msg b"))
+			{
+				if(document.querySelectorAll("div.msg b")[n].innerHTML == document.getElementById("sch_cont").value)
+				{
+					document.querySelectorAll("div.chat")[n].style.backgroundColor = "lightblue";
+					break;
+				}
+			}
+			if(n%1 == 0) {idx = n;}
+			else {idx = 0;}
+		}
+
+		function bck_clr_change() {
+			document.querySelectorAll("div.chat")[idx].style.backgroundColor = "transparent";
+		}
+
+		function uploadFile() {
+			newDP = URL.createObjectURL(document.getElementById("DPfile").files[0]);
+			document.getElementById("profile_pic").src = newDP;
+		}
+
+		function DP_change() {
+			if(newDP == null || newDP == undefined) {
+				document.getElementById("disp_pic").src = document.getElementById("disp_pic").src
+			}	
+			else {
+				document.getElementById("disp_pic").src = newDP;
+			}
+		}
+
+		function status_change() {
+			var newStatus = prompt("What's on your mind ?");
+			if(newStatus == null || newStatus == undefined || newStatus == '') {
+				document.getElementById('status').innerHTML = "Click here to change the status";
+			}
+			else {
+				document.getElementById('status').innerHTML = newStatus;
+			}
+		}
+
+		function removeFile() {
+			newDP = null;
+			document.getElementById("DPfile").files[0].value = "No file chosen";
+		}
+
+		function hide_section() {
+			document.getElementById("chat1").style.display = "none";
+			document.getElementById("chat2").style.display = "none";
+			document.getElementById("chat3").style.display = "none";
+			document.getElementById("chat4").style.display = "none";
+			document.getElementById("chat5").style.display = "none";
+			document.getElementById("hdr1").style.display = "none";
+			document.getElementById("hdr2").style.display = "none";
+			document.getElementById("hdr3").style.display = "none";
+			document.getElementById("hdr4").style.display = "none";
+			document.getElementById("hdr5").style.display = "none";
+		}
+
+		function displayChat(chatNum) {
+			blur_search();
+			bck_clr_change();
+			hide_section();
+			let chatId = "chat"+chatNum;
+			if(chatId == 'chat1') {
+				document.getElementById("hdr1").style.display = "flex";
+				document.getElementById("chat1").style.display = "flex";
+			} 
+			else if(chatId == 'chat2') {
+				document.getElementById("hdr2").style.display = "flex";
+				document.getElementById("chat2").style.display = "flex";
+			}
+			else if(chatId == 'chat3') {
+				document.getElementById("hdr3").style.display = "flex";
+				document.getElementById("chat3").style.display = "flex";
+			}
+			else if(chatId == 'chat4') {
+				document.getElementById("hdr4").style.display = "flex";
+				document.getElementById("chat4").style.display = "flex";
+				document.getElementById("unread_num").style.display = "none";
+				document.getElementById("unread_msg").style.color = "black";
+			}
+			else {
+				document.getElementById("hdr5").style.display = "flex";
+				document.getElementById("chat5").style.display = "flex";
+			}
+		}
+
+		function display_unread() {
+			hide_section();
+			document.getElementById("unread_num").style.display = "flex";
+			document.getElementById("unread_msg").style.color = "blue";
+			for(let i=0; i<(document.getElementsByClassName("chat").length);i++) {
+				if(i==3) {continue;}
+				else {document.getElementsByClassName("chat")[i].style.display = "none";}
+			}
+		}
+
+		function display_chatSection() {
+			for(let j=0; j<(document.getElementsByClassName("chat").length);j++) {
+				document.getElementsByClassName("chat")[j].style.display = "flex";
+			}
+		}
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
