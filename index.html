@@ -350,6 +350,7 @@
 	</div>
 
 	<script type="text/javascript">
+		var counter = -1;
 		var idx = 0;
 		var newDP;
 		function disp_search() { 
@@ -477,16 +478,18 @@
 			return (h + ':' + m + (new Date().toLocaleTimeString()).slice(-2));
 		}
 
-		function sendMsg(typed) {
+		function sendMsg(typed) {		
 			if(document.getElementsByClassName("banner")[typed].innerHTML == 'TODAY') {
 				document.getElementsByClassName("placeholder")[typed].innerHTML += "<div class=\"d-flex flex-row justify-content-end\"><mark class=\"px-2 mb-2 bg-warning rounded\" style=\"font-size: 12px;\"><b>" + document.getElementsByClassName("typedMsg")[typed].value + "&emsp;</b><small class=\"text-muted\">" + timeNow() + "</small></mark></div>";
 			} else {
 				document.getElementsByClassName("placeholder")[typed].innerHTML += "<div class=\"d-flex flex-row justify-content-center\"><mark class=\"px-2 mb-2 bg-dark rounded\"><small class=\"banner text-muted\">TODAY</small></mark></div><div class=\"d-flex flex-row justify-content-end\"><mark class=\"px-2 mb-2 bg-warning rounded\" style=\"font-size: 12px;\"><b>" + document.getElementsByClassName("typedMsg")[typed].value + "&emsp;</b><small class=\"text-muted\">" + timeNow() + "</small></mark></div>";
 
 				document.getElementsByClassName("banner")[typed].className = "newBanner";
+				counter++;
 			}
 
 			document.getElementsByClassName("typedMsg")[typed].value = '';
+			document.getElementsByClassName("newBanner")[counter].style.color = "#6c757d";
 		}
 	</script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
