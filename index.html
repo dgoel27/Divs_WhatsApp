@@ -478,7 +478,6 @@
 		}
 
 		function sendMsg(typed) {
-			alert(document.getElementsByClassName("placeholder")[typed].innerHTML);
 			if(document.getElementsByClassName("banner")[typed].innerHTML == 'TODAY') {
 				document.getElementsByClassName("placeholder")[typed].innerHTML += "<div class=\"d-flex flex-row justify-content-end\"><mark class=\"px-2 mb-2 bg-warning rounded\" style=\"font-size: 12px;\"><b>" + document.getElementsByClassName("typedMsg")[typed].value + "&emsp;</b><small class=\"text-muted\">" + timeNow() + "</small></mark></div>";
 			} else {
