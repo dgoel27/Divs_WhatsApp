@@ -31,7 +31,7 @@
 						      <div class="modal-body">
 						        <img id="profile_pic" src="my_dp.jpg" style="width: 100%; height: 100%; margin-bottom: 2vh;">
 						        <div class="form-group">
-			                        <label for="DPfile"><i>Choose a new Display Picture</i></label>
+			                        <label for="DPfile"><i>Choose a new Display Picture<br>Make sure to click on Upload before saving changes</i></label>
 			                        <input type="file" class="form-control-file" id="DPfile">
 			                    </div>
 						      </div>
@@ -122,7 +122,7 @@
 					<div class="row chat border border-top-0 p-1 mx-auto">
 						<div class="col-2 disp_pic1 border-dark border-top-0 p-1 rounded"></div>
 						<div class="col-7 msg text-truncate text-dark"><b>Pri</b><br><small>Hey Pri :) Whats up ??</small></div>
-						<div class="col-3 timestamp text-right text-muted">10:00AM</div>
+						<div class="col-3 timestamp text-right text-muted">00:01AM</div>
 					</div></a>
 				<div class="collapse d-md-none" id="collapseChat1">
 					<div class="card bg-info text-white w-100 h-100 m-0">
@@ -132,18 +132,18 @@
 							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
 						</div>
 						<div class="card-body">
-							<div class="d-flex flex-column">
+							<div class="placeholder d-flex flex-column">
 								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 17,2018</small></mark></div>							
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Let's catch up today&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
 								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Sure ! What time ??&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>sharp @6.. cafetaria !!&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
-								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
-								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Hey Pri :) Whats up ??&emsp;</b><small class="text-muted">10:00AM</small></mark></div>
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">TODAY</small></mark></div>							
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Hey Pri :) Whats up ??&emsp;</b><small class="text-muted">00:01AM</small></mark></div>							
 							</div>						
 						</div>
 						<div class="card-footer m-0 d-inline-flex">
-							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+							<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(0)">
 						</div>
 					</div>	
 				</div>				
@@ -161,17 +161,17 @@
 							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
 						</div>						
 						<div class="card-body">
-							<div class="d-flex flex-column">
-								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
+							<div class="placeholder d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">YESTERDAY</small></mark></div>							
 								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Pick some icecream on your way to home&emsp;</b><small class="text-muted">05:30PM</small></mark></div>
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Hmmmm...&emsp;</b><small class="text-muted">05:31PM</small></mark></div>							
 								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Will you bring or no ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>							
-								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Bro !! You there?&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Bro !! You there?&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
 							</div>
 						</div>
 						<div class="card-footer m-0 d-inline-flex">
-							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+							<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(1)">
 						</div>
 					</div>
 				</div>		
@@ -189,20 +189,20 @@
 							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
 						</div>						
 						<div class="card-body">
-							<div class="d-flex flex-column">
-								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">YESTERDAY</small></mark></div>							
+							<div class="placeholder d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 21,2018</small></mark></div>							
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Have you reached ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
 								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Yes, mom ...&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Good, take care, enjoy...&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
-								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">YESTERDAY</small></mark></div>
 								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>whats in the menu today..? &emsp;</b><small class="text-muted">08:30PM</small></mark></div>								
-								<div class="d-flex flex-row justify-content-start"><mark class="mb-2 bg-light rounded" style="font-size: 12px;"><img src="chhole.png" style="width: 250px;height: 200px"><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<small class="text-muted text-right">08:30PM</small></mark></div>										
-								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>I feel hungry..it looks so yumm :P&emsp;</b><small class="text-muted">08:30PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-start"><mark class="mb-2 bg-light rounded" style="font-size: 12px;"><img src="chhole.png" style="width: 250px;height: 200px"><br><small class="text-muted text-right">08:30PM</small></mark></div>										
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>I feel hungry..it looks so yumm :P&emsp;</b><small class="text-muted">08:30PM</small></mark></div>
 							</div>
 						</div>
 						<div class="card-footer m-0 d-inline-flex">
-							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+							<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(2)">
 						</div>
 					</div>	
 				</div>					
@@ -220,17 +220,17 @@
 							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
 						</div>						
 						<div class="card-body">
-							<div class="d-flex flex-column">
-								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 11,2018</small></mark></div>	
+							<div class="placeholder d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">APRIL 11,2018</small></mark></div>	
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tina</span><br>So.. tell me girls..which one should i go with..&emsp;</b><small class="text-muted">08:29PM</small></mark></div>													
 								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>You guys carry on.. TTYL..I've to attend a call&emsp;</b><small class="text-muted">08:30PM</small></mark></div>							
-								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><u class="text-primary">https://www.amazon.in/Footilicious-Womens-Black-Fashion-Sandals/dp/B06XWTVP26?tag=googinhydr18418-21&tag=googinkenshoo-21&ascsubtag=d8487a7e-ab62-44a3-8279-4ea60ac484ea</u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:47PM</small></mark></div>
-								<div class="d-flex flex-row justify-content-start"><mark class="px-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><span class="text-success">@Tina</span> Check this out </b><img src="emoji.png" style="width: 15px;height: 20px;margin-left: 2px;">&emsp;<small class="text-muted">08.47PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><u class="text-primary">https://www.amazon.in/Footilicious-Womens-Black-Fashion-Sandals/dp/B06XWTVP26?tag=googinhydr18418-21&tag=googinkenshoo-21&ascsubtag=d8487a7e-ab62-44a3-8279-4ea60ac484ea</u>&emsp;</b><small class="text-muted">08:47PM</small></mark></div>
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><span class="text-success">@Tina</span> Check this out </b><img src="emoji.png" style="width: 15px;height: 20px;margin-left: 2px;">&emsp;<small class="text-muted">08.47PM</small></mark></div>
 							</div>						
 						</div>
 						<div class="card-footer m-0 d-inline-flex">
-							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+							<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(3)">
 						</div>
 					</div>	
 				</div>					
@@ -248,18 +248,18 @@
 							<div class="p-0 ml-3"><img src="whiteDots.jpg" style="width: 20px;height: 30px;"></div>
 						</div>						
 						<div class="card-body">
-							<div class="d-flex flex-column">
-								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">MARCH 27,2018</small></mark></div>		
-								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br><img src="cake.jpg" style="width: 250px;height: 200px;"><br>happy b'day love..&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:55AM</small></mark></div>
+							<div class="placeholder d-flex flex-column">
+								<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">MARCH 27,2018</small></mark></div>		
+								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br><img src="cake.jpg" style="width: 250px;height: 200px;"><br>happy b'day love..&emsp;</b><small class="text-muted">08:55AM</small></mark></div>
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-warning font-weight-bold">Mini Aunty</span><br>You remember the date, huh !!&emsp;</b><small class="text-muted">08:57AM</small></mark></div>
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br>oh !! how can I forget :P&emsp;</b><small class="text-muted">08:57AM</small></mark></div>							
 								<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Sid</span><br>Many more happy return of the day aunty..&emsp;</b><small class="text-muted">08:58AM</small></mark></div>						
-								<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Happy birthday aunty ;) where's the party tonight??&emsp;</b><small class="text-muted">09:01AM</small></mark></div>
+								<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Happy birthday aunty ;) where's the party tonight??&emsp;</b><small class="text-muted">09:01AM</small></mark></div>
 							</div>						
 						</div>
 						<div class="card-footer m-0 d-inline-flex">
-							<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+							<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+							<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(4)">
 						</div>
 					</div>	
 				</div>												
@@ -267,82 +267,82 @@
 			<div class="col-sm-0 col-md-8 d-none d-md-block bg-dark">
 				<div id="chat1" class="card bg-info w-100 h-100 m-0" style="display: none;">
 					<div class="card-body">
-						<div class="d-flex flex-column">
+						<div class="placeholder d-flex flex-column">
 							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 17,2018</small></mark></div>							
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Let's catch up today&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
 							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Sure ! What time ??&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>sharp @6.. cafetaria !!&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
-							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
-							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Hey Pri :) Whats up ??&emsp;</b><small class="text-muted">10:00AM</small></mark></div>
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">TODAY</small></mark></div>							
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Hey Pri :) Whats up ??&emsp;</b><small class="text-muted">00:01AM</small></mark></div>
 						</div>						
 					</div>
 					<div class="card-footer m-0 d-inline-flex">
-						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(5)">
 					</div>
 				</div>
 				<div id="chat2" class="card bg-info w-100 h-100 m-0" style="display: none;">
 					<div class="card-body">
-						<div class="d-flex flex-column">
-							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>							
+						<div class="placeholder d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">YESTERDAY</small></mark></div>							
 							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Pick some icecream on your way to home&emsp;</b><small class="text-muted">05:30PM</small></mark></div>
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Hmmmm...&emsp;</b><small class="text-muted">05:31PM</small></mark></div>							
 							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Will you bring or no ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>							
-							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Bro !! You there?&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Bro !! You there?&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
 						</div>						
 					</div>
 					<div class="card-footer m-0 d-inline-flex">
-						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(6)">
 					</div>
 				</div>
 				<div id="chat3" class="card bg-info w-100 h-100 m-0" style="display: none;">
 					<div class="card-body">
-						<div class="d-flex flex-column">
-							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">YESTERDAY</small></mark></div>							
+						<div class="placeholder d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 21,2018</small></mark></div>							
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Have you reached ??&emsp;</b><small class="text-muted">05:32PM</small></mark></div>
 							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Yes, mom ...&emsp;</b><small class="text-muted">05:33PM</small></mark></div>							
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b>Good, take care, enjoy...&emsp;</b><small class="text-muted">05:34PM</small></mark></div>
-							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">TODAY</small></mark></div>
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">YESTERDAY</small></mark></div>
 							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>whats in the menu today..? &emsp;</b><small class="text-muted">08:30PM</small></mark></div>								
-							<div class="d-flex flex-row justify-content-start"><mark class="mb-2 bg-light rounded" style="font-size: 12px;"><img src="chhole.png" style="width: 250px;height: 200px"><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<small class="text-muted text-right">08:30PM</small></mark></div>										
-							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>I feel hungry..it looks so yumm :P&emsp;</b><small class="text-muted">08:30PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-start"><mark class="mb-2 bg-light rounded" style="font-size: 12px;"><img src="chhole.png" style="width: 250px;height: 200px"><br>&emsp;<small class="text-muted text-right">08:30PM</small></mark></div>										
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>I feel hungry..it looks so yumm :P&emsp;</b><small class="text-muted">08:30PM</small></mark></div>
 						</div>						
 					</div>
 					<div class="card-footer m-0 d-inline-flex">
-						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(7)">
 					</div>
 				</div>
 				<div id="chat4" class="card bg-info w-100 h-100 m-0" style="display: none;">
 					<div class="card-body">
-						<div class="d-flex flex-column">
-							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">APRIL 11,2018</small></mark></div>	
+						<div class="placeholder d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">APRIL 11,2018</small></mark></div>	
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tina</span><br>So.. tell me girls..which one should i go with..&emsp;</b><small class="text-muted">08:29PM</small></mark></div>													
 							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>You guys carry on.. TTYL..I've to attend a call&emsp;</b><small class="text-muted">08:30PM</small></mark></div>							
-							<div class="d-flex flex-row justify-content-start w-50"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><u class="text-primary">https://www.amazon.in/Footilicious-Womens-Black-Fashion-Sandals/dp/B06XWTVP26?tag=googinhydr18418-21&tag=googinkenshoo-21&ascsubtag=d8487a7e-ab62-44a3-8279-4ea60ac484ea</u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:47PM</small></mark></div>
-							<div class="d-flex flex-row justify-content-start"><mark class="px-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><span class="text-success">@Tina</span> Check this out </b><img src="emoji.png" style="width: 15px;height: 20px;margin-left: 2px;">&emsp;<small class="text-muted">08.47PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-start w-50"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><u class="text-primary">https://www.amazon.in/Footilicious-Womens-Black-Fashion-Sandals/dp/B06XWTVP26?tag=googinhydr18418-21&tag=googinkenshoo-21&ascsubtag=d8487a7e-ab62-44a3-8279-4ea60ac484ea</u>&emsp;</b><small class="text-muted">08:47PM</small></mark></div>
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Shreya S</span><br><span class="text-success">@Tina</span> Check this out </b><img src="emoji.png" style="width: 15px;height: 20px;margin-left: 2px;">&emsp;<small class="text-muted">08.47PM</small></mark></div>
 						</div>						
 					</div>
 					<div class="card-footer m-0 d-inline-flex">
-						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(8)">
 					</div>
 				</div>
 				<div id="chat5" class="card bg-info w-100 h-100 m-0" style="display: none;">
 					<div class="card-body">
-						<div class="d-flex flex-column">
-							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="text-muted">MARCH 27,2018</small></mark></div>		
-							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br><img src="cake.jpg" style="width: 250px;height: 200px;"><br>happy b'day love..&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><small class="text-muted">08:55AM</small></mark></div>
+						<div class="placeholder d-flex flex-column">
+							<div class="d-flex flex-row justify-content-center"><mark class="px-2 mb-2 bg-dark rounded"><small class="banner text-muted">MARCH 27,2018</small></mark></div>		
+							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br><img src="cake.jpg" style="width: 250px;height: 200px;"><br>happy b'day love..&emsp;</b><small class="text-muted">08:55AM</small></mark></div>
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-warning font-weight-bold">Mini Aunty</span><br>You remember the date, huh !!&emsp;</b><small class="text-muted">08:57AM</small></mark></div>
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-success font-weight-bold">Tom Uncle</span><br>oh !! how can I forget :P&emsp;</b><small class="text-muted">08:57AM</small></mark></div>							
 							<div class="d-flex flex-row justify-content-start"><mark class="px-2 mb-2 bg-light rounded" style="font-size: 12px;"><b><span class="text-danger font-weight-bold">Sid</span><br>Many more happy return of the day aunty..&emsp;</b><small class="text-muted">08:58AM</small></mark></div>						
-							<div class="d-flex flex-row justify-content-end"><mark class="px-2 bg-warning rounded" style="font-size: 12px;"><b>Happy birthday aunty ;) where's the party tonight??&emsp;</b><small class="text-muted">09:01AM</small></mark></div>
+							<div class="d-flex flex-row justify-content-end"><mark class="px-2 mb-2 bg-warning rounded" style="font-size: 12px;"><b>Happy birthday aunty ;) where's the party tonight??&emsp;</b><small class="text-muted">09:01AM</small></mark></div>
 						</div>						
 					</div>
 					<div class="card-footer m-0 d-inline-flex">
-						<textarea rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
-						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;">
+						<textarea class="typedMsg" rows="1" cols="114" placeholder="Type a message" style="resize: none;border-radius: 20px;"></textarea>
+						<img src="send.png" style="width: 40px;height: 35px;margin-left: 7px;" onclick="sendMsg(9)">
 					</div>
 				</div>																				
 			</div>
@@ -394,7 +394,7 @@
 		}
 
 		function status_change() {
-			var newStatus = prompt("What's on your mind ?");
+			var newStatus = prompt("Type a new Status below");
 			if(newStatus == null || newStatus == undefined || newStatus == '') {
 				document.getElementById('status').innerHTML = "Click here to change the status";
 			}
@@ -464,6 +464,30 @@
 			for(let j=0; j<(document.getElementsByClassName("chat").length);j++) {
 				document.getElementsByClassName("chat")[j].style.display = "flex";
 			}
+		}
+
+		function timeNow() {
+			var d = new Date(),
+			    h = d.getHours(),
+			    m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+			if(h>12) {
+				h -= 12;
+				h = (h<10?'0':'') + h; 
+			}
+			return (h + ':' + m + (new Date().toLocaleTimeString()).slice(-2));
+		}
+
+		function sendMsg(typed) {
+			alert(document.getElementsByClassName("placeholder")[typed].innerHTML);
+			if(document.getElementsByClassName("banner")[typed].innerHTML == 'TODAY') {
+				document.getElementsByClassName("placeholder")[typed].innerHTML += "<div class=\"d-flex flex-row justify-content-end\"><mark class=\"px-2 mb-2 bg-warning rounded\" style=\"font-size: 12px;\"><b>" + document.getElementsByClassName("typedMsg")[typed].value + "&emsp;</b><small class=\"text-muted\">" + timeNow() + "</small></mark></div>";
+			} else {
+				document.getElementsByClassName("placeholder")[typed].innerHTML += "<div class=\"d-flex flex-row justify-content-center\"><mark class=\"px-2 mb-2 bg-dark rounded\"><small class=\"banner text-muted\">TODAY</small></mark></div><div class=\"d-flex flex-row justify-content-end\"><mark class=\"px-2 mb-2 bg-warning rounded\" style=\"font-size: 12px;\"><b>" + document.getElementsByClassName("typedMsg")[typed].value + "&emsp;</b><small class=\"text-muted\">" + timeNow() + "</small></mark></div>";
+
+				document.getElementsByClassName("banner")[typed].className = "newBanner";
+			}
+
+			document.getElementsByClassName("typedMsg")[typed].value = '';
 		}
 	</script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
